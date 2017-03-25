@@ -1,11 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { SettingPage } from '../pages/setting/setting'
+import { SettingPage } from '../pages/setting/setting';
+import { CheckinPage } from '../pages/checkin/checkin';
+import { ReservePage } from '../pages/reserve/reserve';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,11 +12,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    ReservePage,
     TabsPage,
-    SettingPage
+    SettingPage,
+    CheckinPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,11 +23,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    ReservePage,
     TabsPage,
-    SettingPage
+    SettingPage,
+    CheckinPage
   ],
   providers: [
     StatusBar,

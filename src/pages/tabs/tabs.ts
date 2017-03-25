@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { HomePage } from '../home/home';
-import { AboutPage } from '../about/about';
+import { ReservePage } from '../reserve/reserve';
+import { CheckinPage } from '../checkin/checkin';
 import { SettingPage } from '../setting/setting';
 
 @Component({
@@ -10,9 +10,9 @@ import { SettingPage } from '../setting/setting';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = HomePage;
-  tab2Root: any = AboutPage;
 
+  reserveTab: any = ReservePage;
+  checkinTab: any = CheckinPage;
   settingTab: any = SettingPage;
 
   constructor() {
