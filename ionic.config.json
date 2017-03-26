@@ -5,8 +5,8 @@
   "typescript": true,
   "proxies": [
     {
-      "path": "/test/hack",
-      "proxyUrl": "http://www-scf.usc.edu/~mingjiez/hack"
+      "path": "/api",
+      "proxyUrl": "http://ec2-54-153-113-42.us-west-1.compute.amazonaws.com/bookroom"
     }
   ]
 }

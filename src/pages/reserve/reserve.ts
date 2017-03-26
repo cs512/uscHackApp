@@ -46,8 +46,9 @@ export class ReservePage {
 
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
+    console.log(this.selectDate.month.replace(/-/g, ''));
 
-    this.http.get("/test/hack/data.json").subscribe(data => {
+    this.http.get("http://ec2-54-153-113-42.us-west-1.compute.amazonaws.com/bookroom/rest.php/"+this.selectDate.month.replace('-', '')).subscribe(data => {
       var item = data.json();
       console.log(data);
       if (item.status == 1) {
@@ -61,7 +62,6 @@ export class ReservePage {
   }
 
   refreshTable(tableData) {
-    let status = tableData.status;
     let rms: Room[] = [];
     console.log(tableData.rooms)
     for (let roomName in tableData.rooms) {

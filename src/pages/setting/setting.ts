@@ -35,6 +35,12 @@ export class SettingPage {
     });
   }
 
+  updateInfo() {
+    this.storage.set('email', this.email);
+    this.storage.set('firstName', this.firstName);
+    this.storage.set('lastName', this.lastName);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
   }
