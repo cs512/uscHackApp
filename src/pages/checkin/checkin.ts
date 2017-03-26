@@ -101,7 +101,7 @@ export class CheckinPage {
         console.log(data);
         if (data.json().status == 1) {
           let toast = this.toastCtrl.create({
-            message: 'Deleted',
+            message: 'Checked-in',
             duration: 3000
           });
           toast.present();
