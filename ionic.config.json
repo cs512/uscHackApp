@@ -2,5 +2,11 @@
   "name": "hackApp",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/test/hack",
+      "proxyUrl": "http://www-scf.usc.edu/~mingjiez/hack"
+    }
+  ]
 }

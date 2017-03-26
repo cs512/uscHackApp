@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the Setting page.
@@ -13,7 +14,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public email: string = "";
+  public firstName: string = "";
+  public lastName: string = "";
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    console.log('Storage ready!');
+    this.storage.get('hasInit').then((hasInit) => {
+      if (hasInit != null) {
+        this.storage.get('email').then((email) => {
+          this.email = email;
+        });
+        this.storage.get('firstName').then((firstName) => {
+          this.firstName = firstName;
+        });
+        this.storage.get('lastName').then((lastName) => {
+          this.lastName = lastName;
+        });
+      }
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');

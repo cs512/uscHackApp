@@ -12,7 +12,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
 <ion-card>
   <ion-card-header>
@@ -20,22 +20,25 @@
   </ion-card-header>
 
   <ion-list>
-    <button ion-item>
-      <ion-icon name="cart" item-left></ion-icon>
-      E-mail
-    </button>
 
-    <button ion-item>
-      <ion-icon name="medical" item-left></ion-icon>
-      First name
-    </button>
+    <ion-item>
+      <ion-label stacked>First Name</ion-label>
+      <ion-input type="text">{{firstName}}</ion-input>
+    </ion-item>
 
-    <button ion-item>
-      <ion-icon name="cafe" item-left></ion-icon>
-      Last name
-    </button>
+    <ion-item>
+      <ion-label stacked>Last Name</ion-label>
+      <ion-input type="text">{{lastName}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>E-mail</ion-label>
+      <ion-input type="text">{{email}}</ion-input>
+    </ion-item>
 
   </ion-list>
+  <button ion-button block>Confirm</button>
+
 </ion-card>
 
 </ion-content>

@@ -13,6 +13,48 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<ion-card *ngFor="let rev of reservations">
+  <ion-card-content>
+    <ion-card-title >
+      <ion-item no-padding>
+        <ion-label>{{rev.building}}</ion-label>
+        <ion-datetime no-padding displayFormat="DDD MMM DD YYYY" [(ngModel)]=rev.date></ion-datetime>
+      </ion-item>
+    </ion-card-title>
+    <h1>
+      <span> {{rev.room}} </span>
+      <span class="time">
+        {{rev.startTime}}
+      </span>
+    </h1>
+    
+  </ion-card-content>
+
+  <ion-row no-padding>
+    <ion-col>
+      <button ion-button clear small color="danger" icon-left>
+        <ion-icon name='star'></ion-icon>
+        Modify
+      </button>
+    </ion-col>
+    <ion-col text-center>
+      <button ion-button clear small color="danger" icon-left>
+        <ion-icon name='musical-notes'></ion-icon>
+        Cancel
+      </button>
+    </ion-col>
+    <ion-col text-right>
+      <button ion-button clear small color="danger" icon-left>
+        <ion-icon name='share-alt'></ion-icon>
+        Check-in
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
 
 </ion-content>

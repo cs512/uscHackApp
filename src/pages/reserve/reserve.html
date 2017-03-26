@@ -15,10 +15,14 @@
 
 <ion-content class="outer-content">
 
+<ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
 <ion-list>
   <ion-item>
     <ion-label>Select Date</ion-label>
-    <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="selectDate.month"></ion-datetime>
+    <ion-datetime displayFormat="DDD MMM DD YYYY" [(ngModel)]="selectDate.month" min={{minDate}} max={{maxDate}}></ion-datetime>
   </ion-item>
 </ion-list>
 
@@ -26,16 +30,37 @@
   <ion-list-header>
     Avaliablity
   </ion-list-header>
-  <div>balabalabala</div>
+
+  <ion-slides pager style="background: white">
+
+    <ion-slide *ngFor="let p of slidePages">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 ></ion-col>
+          <ion-col col-2 class="timecell">{{p.startHour}}-{{p.startHour + 1}}</ion-col>
+          <ion-col col-2 class="timecell">{{p.startHour + 1}}-{{p.startHour + 2}}</ion-col>
+          <ion-col col-2 class="timecell">{{p.startHour + 2}}-{{p.startHour + 3}}</ion-col>
+          <ion-col col-2 class="timecell">{{p.startHour + 3}}-{{p.startHour + 4}}</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let r of p.rooms">
+          <ion-col col-3>{{r.name}}</ion-col>
+          <ion-col col-2 class="timecell {{r.status[p.startHour]}}"></ion-col>
+          <ion-col col-2 class="timecell {{r.status[p.startHour+1]}}"></ion-col>
+          <ion-col col-2 class="timecell {{r.status[p.startHour+2]}}"></ion-col>
+          <ion-col col-2 class="timecell {{r.status[p.startHour+3]}}"></ion-col>
+        </ion-row>
+      </ion-grid>
+      <div style="height: 30px"></div>
+    </ion-slide>
+
+  </ion-slides>
+  
+    
 </ion-list>
 
-</ion-content>
+<button ion-button full>Confirm</button>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer</ion-title>
-  </ion-toolbar>
-</ion-footer>
+</ion-content>
 
 <style>
   ion-list:first-child {
@@ -43,5 +68,17 @@
   }
   ion-list + ion-list {
     margin-top: 0;
+  }
+
+  .timecell {
+    border: 2px solid white;
+  }
+
+  ion-col.occ {
+    background-color: red;
+  }
+
+  ion-col.ava {
+    background-color: lawngreen;
   }
 </style>
