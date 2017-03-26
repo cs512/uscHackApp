@@ -29,7 +29,7 @@
     <h1>
       <span> {{rev.room}} </span>
       <span class="time">
-        {{rev.startTime}}
+        {{rev.startTime + ':00 ~ ' + (rev.startTime + 1) + ':00'}} 
       </span>
     </h1>
     
@@ -43,7 +43,7 @@
       </button>
     </ion-col>
     <ion-col text-center>
-      <button ion-button clear small color="danger" icon-left>
+      <button ion-button clear small color="danger" icon-left (click)="deleteRoom(rev.date, rev.room, rev.startTime)">
         <ion-icon name='musical-notes'></ion-icon>
         Cancel
       </button>
