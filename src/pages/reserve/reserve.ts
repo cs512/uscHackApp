@@ -19,4 +19,8 @@ export class ReservePage {
     console.log('ionViewDidLoad ReservePage');
   }
 
+  public selectDate = {
+    month: '1990-02-19'
+  }
+
 }
