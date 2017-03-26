@@ -63,7 +63,7 @@
   <ion-item>
     Room: {{selectedRoom}}
   </ion-item>
-  <button ion-button full>Confirm</button>
+  <button ion-button full (click)="confirmRoom()">Confirm</button>
 </ion-list>
 
 </ion-content>
@@ -86,5 +86,9 @@
 
   ion-col.ava {
     background-color: lawngreen;
+  }
+
+  ion-col.pub {
+    background-color: #0ff;
   }
 </style>

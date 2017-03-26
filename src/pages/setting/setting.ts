@@ -39,6 +39,7 @@ export class SettingPage {
     this.storage.set('email', this.email);
     this.storage.set('firstName', this.firstName);
     this.storage.set('lastName', this.lastName);
+    this.storage.set('hasInit', 'true');
   }
 
   ionViewDidLoad() {
