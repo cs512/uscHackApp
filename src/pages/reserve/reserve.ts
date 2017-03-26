@@ -41,6 +41,8 @@ export class ReservePage {
   public minDate = '';
   public maxDate = '';
   public slidePages: SlidePage[] = [];
+  public selectedTime = '';
+  public selectedRoom = '';
 
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
@@ -73,6 +75,16 @@ export class ReservePage {
     for (let pages of this.slidePages) {
       pages.rooms = rms;
     }
+  }
+
+  selectDateTimeRoom(date, time, room) {
+    console.log(date);
+    if (date != 'ava') {
+      return;
+    }
+    console.log(1);
+    this.selectedRoom = room;
+    this.selectedTime = time;
   }
 
 }
